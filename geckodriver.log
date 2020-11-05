@@ -545,3 +545,20 @@ TimedPromise/<@chrome://marionette/content/sync.js:228:19
 TimedPromise@chrome://marionette/content/sync.js:213:10
 interaction.flushEventLoop@chrome://marionette/content/interaction.js:418:10
 webdriverClickElement@chrome://marionette/content/interaction.js:179:31
+1604606924718	geckodriver	INFO	Listening on 127.0.0.1:51632
+1604606925318	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\A737638\\AppData\\Local\\Temp\\rust_mozprofilePbXwGL"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1604606939322	Marionette	INFO	Listening on port 51637
+1604606940481	Marionette	WARN	TLS certificate errors will be ignored for this session
+1604608269585	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
+TimedPromise/<@chrome://marionette/content/sync.js:228:19
+TimedPromise@chrome://marionette/content/sync.js:213:10
+interaction.flushEventLoop@chrome://marionette/content/interaction.js:418:10
+webdriverClickElement@chrome://marionette/content/interaction.js:179:31
+1604609323205	geckodriver	INFO	Listening on 127.0.0.1:52799
+1604609323704	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\A737638\\AppData\\Local\\Temp\\rust_mozprofileyri8Cy"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1604609330357	Marionette	INFO	Listening on port 52804
+1604609330888	Marionette	WARN	TLS certificate errors will be ignored for this session
