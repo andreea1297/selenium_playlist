@@ -1,8 +1,10 @@
 from selenium import webdriver
+from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.keys import Keys
 import time
 from datetime import datetime
 
+#asculate melodii din fisier
 def play_list():
     f = open("melodii.txt", "r")
     nr = 0
@@ -40,13 +42,14 @@ def play_list():
     #pas 5 - play a song
         driver.find_element_by_class_name("playbutton").click()
         #assert "no results" not in driver.page_source
-        time.sleep(250) #250 sec
+        time.sleep(25) #250 sec
 
 
 
 #salvare in fisier a melodiilor asculate
+#trebuie intrat pe fiecare melodie in parte si dat play
 def save_songs():
-    f = open("m1.txt", "w")
+    f = open("m1.txt", "w", encoding="utf-8")
     nr = 0
     mel = 0
     while True:
@@ -56,28 +59,39 @@ def save_songs():
             driver.get("https://bandcamp.com/")  # accesare site
             nr = nr+1
 
-        print("Acultati o melodie - dati play la melodie")
-        time.sleep(30)
+        print("Acultati o melodie")
+        time.sleep(40)
         print("timpul a expirat")
 
-        nume_cantaret = driver.find_element_by_id("name-section").text
-        print(nume_cantaret)
+       # print(driver.find_elements_by_class_name("track_cell").text)
+        try:
+            driver.find_element_by_class_name("playbutton").click()
+            #if driver.find_element_by_class_name("playbutton"): # se verifica daca s-a intodus o melodie, daca nu s-a introdus nicio melodie atunci se iese din program
+             #   driver.find_element_by_class_name("playbutton").click() #fac click pe butonul de play
+            #else:
+             #   print("nu ati introdus nicio melodie")
+              #  f.close()
+              #  exit()
 
-        time_current = datetime.now()
-        time_mel = time_current.strftime("%H:%M:%S")
-        print(time_mel)
+            nume_cantaret = driver.find_element_by_id("name-section").text
 
-        # scriere in fisier
-        f.write(nume_cantaret,)
-        f.write(" Ati ascultat melodia la ora: ")
-        f.write(time_mel)
-        f.write('\n')
 
-        if (mel == 2):
-            f.close()
-            exit()
-        time.sleep(5)
-        mel = mel+1
+            #print(nume_cantaret)
+
+            time_current = datetime.now()
+            time_mel = time_current.strftime("%H:%M:%S") #cand s-a dat play la melodie
+            #print(time_mel)
+
+            # scriere in fisier
+            f.write(nume_cantaret) #in fisier va scrie 2 linii pt ca in html sunt 2 subclase diferite(un h2 si un a href)
+            f.write(" Ati ascultat melodia la ora: ")
+            f.write(time_mel)
+            f.write('\n')
+        except NoSuchElementException:
+           print("nu ascultati nicio melodie ")
+           f.close()
+           exit()
+
 
 
 
