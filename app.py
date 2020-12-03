@@ -42,14 +42,14 @@ def play_list():
     #pas 5 - play a song
         driver.find_element_by_class_name("playbutton").click()
         #assert "no results" not in driver.page_source
-        time.sleep(25) #250 sec
+        time.sleep(25) #25 sec
 
 
 
 #salvare in fisier a melodiilor asculate
-#trebuie intrat pe fiecare melodie in parte si dat play
+
 def save_songs():
-    f = open("m1.txt", "w", encoding="utf-8")
+    f = open("mel.txt", "w")
     nr = 0
     mel = 0
     while True:
@@ -75,8 +75,7 @@ def save_songs():
 
             nume_cantaret = driver.find_element_by_id("name-section").text
 
-
-            #print(nume_cantaret)
+            print(nume_cantaret)
 
             time_current = datetime.now()
             time_mel = time_current.strftime("%H:%M:%S") #cand s-a dat play la melodie
